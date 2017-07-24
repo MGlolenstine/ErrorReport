@@ -8,17 +8,18 @@ import java.io.*;
 
 public class Main extends JavaPlugin {
     private static Main plugin;
-    public void onEnable(){
+
+    public void onEnable() {
         plugin = this;
         this.getCommand("erreport").setExecutor(new Command());
     }
 
-    static Main mainGet(){
+    static Main mainGet() {
         return plugin;
     }
 
     @SuppressWarnings("unused")
-    void report(Player p, int n, String s){
+    void report(Player p, int n, String s) {
         File log = new File(getDataFolder().getParentFile().getParentFile(), "logs/latest.log");
         int counter = 0;
         String tmp;
@@ -26,11 +27,11 @@ public class Main extends JavaPlugin {
         try {
             //noinspection deprecation
             ReversedLinesFileReader object = new ReversedLinesFileReader(log);
-            if((tmpn = countLines(log)) < n){
-                n = tmpn;
+            if ((tmpn = countLines(log)) < n) {
+                n = tmpn - 1;
             }
-            while(!(tmp = object.readLine()).isEmpty()  && counter < n) {
-                if(tmp.contains(s)) {
+            while (!(tmp = object.readLine()).isEmpty() && counter < n) {
+                if (tmp.contains(s)) {
                     p.sendMessage(tmp);
                 }
                 counter++;
