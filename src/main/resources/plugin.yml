@@ -1,0 +1,8 @@
+name: ErrorReport
+author: MGlolenstine
+main: xyz.mglolenstine.errorreport.Main
+version: 1.0
+commands:
+  erreport:
+    usage: /erreport
+    description: Print error message in the chat
