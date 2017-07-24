@@ -29,7 +29,7 @@ public class Main extends JavaPlugin {
             if((tmpn = countLines(log)) < n){
                 n = tmpn;
             }
-            while(!(tmp = object.readLine()).equals("")  && counter < n) {
+            while(!(tmp = object.readLine()).isEmpty()  && counter < n) {
                 if(tmp.contains(s)) {
                     p.sendMessage(tmp);
                 }
